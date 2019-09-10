@@ -26,15 +26,15 @@
     </select>
 
     <label>Course</label>
-    <!--<select name="course">
-      {% for coursename in courses %}
+    <select name="course">
+      {% for coursename in course_list %}
         <option value="{{coursename.course_name}}">{{coursename.course_name}}</option>
       {% endfor %}
-    </select>-->
-    <input type="text" name="course"><br><br>
+    </select>
+    <!-- <input type="text" name="course"><br><br> -->
 
     <label>Course Credits</label>
-    <input type="text" name="course_credits"><br><br>
+    <input type="number" name="course_credits"><br><br>
 
     <label>Course Lecture</label>
     <input type="number" name="course_lecture"><br><br>

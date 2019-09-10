@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <form  method="post">
+
+    <label>Batch</label>
+    <input type="number" name="batch"><br><br>
+
+    <label>Programme</label>
+    <select name="programme" id="programme">
+        <option value="BTech">B.Tech</option>
+        <option value="BDes">B.Des</option>
+        <option value="MDes">M.Des</option>
+        <option value="MTech">M.Tech</option>
+        <option value="Phd">PhD</option>
+    </select><br><br>
+
+    <label>Semester</label>
+    <select  name="semester">
+      <option value="all">all</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+
+    </select>
+
+  </form>
+
+  <div class="curriculum">
+
+    {% if tab==1 %}
+    {% for course in semester1  %}
+      <p>Course id :  {{course.course_id}}</p>
+      <p>Course type :  {{course.course_type}}</p>
+      <p>Course credits :  {{course.course_credits}}</p>
+    {% endfor %}
+    {% endif %}
+
+  </div>
+
+{% endblock %}

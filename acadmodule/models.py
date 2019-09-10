@@ -76,10 +76,13 @@ class BatchSemester(models.Model):
     #PBI
     pbi = models.BooleanField(default=False)
 
+    # class Meta():
+    #     unique_together = ('batch','semester','programme')
+
 
 class BtechCurriculum(models.Model):
     programme = models.CharField(max_length=30,choices=Constants.PROGRAMME)
-    batch = models.IntegerField(default=int(timezone.now().year))
+    batch = models.IntegerField(default=int(timezone.now().year),unique=True)
     #Professional Courses
     professional_core_credit = models.IntegerField(default=0)
     professional_elective_credit = models.IntegerField(default=0)
@@ -109,9 +112,9 @@ class BtechCurriculum(models.Model):
 
 class CurriculumCourse(models.Model):
     semester = models.ForeignKey(BatchSemester,on_delete=models.CASCADE,null=True,blank=True)
-    course_id = models.CharField(max_length=20)
+    course_id = models.CharField(max_length=20,blank=True,null=True)
     curr_course = models.ForeignKey(Course,on_delete=models.CASCADE,null=True)
-    course_type = models.CharField(max_length=200,choices=Constants.COURSE_TYPE)
+    course_type = models.CharField(max_length=200,choices=Constants.COURSE_TYPE,blank=True,null=True)
     course_credits = models.IntegerField(default=0)
     course_lecture = models.IntegerField(default=0)
     course_tutorial = models.IntegerField(default=0)
