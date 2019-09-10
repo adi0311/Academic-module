@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <form class="batch_semester" method="post">
+    {% csrf_token %}
+
+    <label>Programme</label>
+    <select name="programme">
+        <option value="BTech">B.Tech</option>
+        <option value="BDes">B.Des</option>
+        <option value="MDes">M.Des</option>
+        <option value="MTech">M.Tech</option>
+        <option value="Phd">PhD</option>
+    </select><br><br>
+
+    <label>Batch</label>
+    <input type="number" name="batch"><br><br>
+
+    <label>Semester</label>
+    <input type="number" name="semester"><br><br>
+
+    <label>Total Courses</label>
+    <input type="number" name="total_number_of_courses"><br><br>
+
+    <label>Professional Core Courses</label>
+    <input type="number" name="professional_core_courses"><br><br>
+
+    <label>Professional Elective Courses</label>
+    <input type="number" name="professional_elective_courses"><br><br>
+
+    <label>Professional Project Courses</label>
+    <input type="number" name="professional_project_courses"><br><br>
+
+    <label>Professional Lab Courses</label>
+    <input type="number" name="professional_lab_courses">
+
+    <label>Engineering Science Courses</label>
+    <input type="number" name="escourses"><br><br>
+
+    <label>Natural Science Courses</label>
+    <input type="number" name="nscourses"><br><br>
+
+    <label>Humanities Courses</label>
+    <input type="number" name="hscourses"><br><br>
+
+    <label>Design Courses</label>
+    <input type="number" name="dscourses"><br><br>
+
+    <label>Manufacturing Courses</label>
+    <input type="number" name="mncourses"><br><br>
+
+    <label>Management Science Courses</label>
+    <input type="number" name="mscourses"><br><br>
+
+    <label>PBI</label>
+    <select name='pbi'>
+      <option value="True">Allowed</option>
+      <option value="False">Not Allowed</option>
+    </select><br><br>
+
+    <button type="submit" name="button">Add Courses</button>
+
+  </form>
+
+{% endblock %}

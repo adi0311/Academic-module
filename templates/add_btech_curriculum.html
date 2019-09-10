@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h1>Add Curriculum Credits for B-tech.</h1>
+
+  <form class="btech_curriculum" method="post">{% csrf_token %}
+
+    <label>Programme</label>
+    <select name="programme" id="programme_curr">
+        <option value="BTech">B.Tech</option>
+        <option value="BDes">B.Des</option>
+        <option value="MDes">M.Des</option>
+        <option value="MTech">M.Tech</option>
+        <option value="Phd">PhD</option>
+    </select><br><br>
+
+
+    <label for="batch">Batch</label>
+    <input type="number" name="batch" placeholder="Batch"><br><br>
+
+    <label for="prof_core_credit">Professional Core</label>
+    <input type="number" name="prof_core_credit" placeholder="Professional Core"><br><br>
+
+    <label for="prof_elective_credit">Professional Elective</label>
+    <input type="number" name="prof_elective_credit" placeholder="Professional Elective"><br><br>
+
+    <label for="prof_project_credit">Professional Core </label>
+    <input type="number" name="prof_project_credit" placeholder="Professional Project"><br><br>
+
+    <label for="prof_lab_credit">Professional Lab </label>
+    <input type="number" name="prof_lab_credit" placeholder="Professional Lab"><br><br>
+
+    <label for="core_engineering_science_credit">Engineering Science</label>
+    <input type="number" name="core_engineering_science_credit" placeholder="Engineering Science"><br><br>
+
+    <label for="core_humanities_credit">Humanities</label>
+    <input type="number" name="core_humanities_credit" placeholder="Humanities"><br><br>
+
+    <label for="core_design_credit">Design</label>
+    <input type="number" name="core_design_credit" placeholder="Design"><br><br>
+
+    <label for="core_manufacturing_credit">Manufacturing</label>
+    <input type="number" name="core_manufacturing_credit" placeholder="Manufacturing"><br><br>
+
+    <label for="core_natural_science_credit">Natural Science</label>
+    <input type="number" name="core_natural_science_credit" placeholder="Natural Science"><br><br>
+
+    <label for="core_management_science_credit">Management Science</label>
+    <input type="number" name="core_management_science_credit" placeholder="Management Science"><br><br>
+
+    <label for="pbi">PBI</label>
+    <input type="number" name="pbi" placeholder="PBI"><br><br>
+
+    <label for="pr">Optional Project</label>
+    <input type="number" name="pr" placeholder="Optional Project"><br><br>
+
+    <button type="submit" name="button">Add Curriculum</button>
+
+
+  </form>
+
+{% endblock %}
