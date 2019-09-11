@@ -6,13 +6,14 @@
 
   <form class="btech_curriculum" method="post">{% csrf_token %}
 
+
     <label>Programme</label>
-    <select name="programme" id="programme_curr">
-        <option value="BTech">B.Tech</option>
-        <option value="BDes">B.Des</option>
-        <option value="MDes">M.Des</option>
-        <option value="MTech">M.Tech</option>
-        <option value="Phd">PhD</option>
+    <select name="programme">
+        <option value="BTech">BTech</option>
+        <option value="BDes">BDes</option>
+        <option value="MDes">MDes</option>
+        <option value="MTech">MTech</option>
+        <option value="PhD">PhD</option>
     </select><br><br>
 
 
@@ -25,7 +26,7 @@
     <label for="prof_elective_credit">Professional Elective</label>
     <input type="number" name="prof_elective_credit" placeholder="Professional Elective"><br><br>
 
-    <label for="prof_project_credit">Professional Core </label>
+    <label for="prof_project_credit">Professional Project </label>
     <input type="number" name="prof_project_credit" placeholder="Professional Project"><br><br>
 
     <label for="prof_lab_credit">Professional Lab </label>

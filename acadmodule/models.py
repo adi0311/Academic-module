@@ -82,7 +82,7 @@ class BatchSemester(models.Model):
 
 class BtechCurriculum(models.Model):
     programme = models.CharField(max_length=30,choices=Constants.PROGRAMME)
-    batch = models.IntegerField(default=int(timezone.now().year),unique=True)
+    batch = models.IntegerField(default=int(timezone.now().year))
     #Professional Courses
     professional_core_credit = models.IntegerField(default=0)
     professional_elective_credit = models.IntegerField(default=0)
@@ -109,6 +109,9 @@ class BtechCurriculum(models.Model):
     sem6 = models.ForeignKey(BatchSemester,on_delete=models.CASCADE,related_name="Semester6",null=True,blank=True)
     sem7 = models.ForeignKey(BatchSemester,on_delete=models.CASCADE,related_name="Semester7",null=True,blank=True)
     sem8 = models.ForeignKey(BatchSemester,on_delete=models.CASCADE,related_name="Semester8",null=True,blank=True)
+
+    class Meta():
+        unique_together = ('programme','batch')
 
 class CurriculumCourse(models.Model):
     semester = models.ForeignKey(BatchSemester,on_delete=models.CASCADE,null=True,blank=True)

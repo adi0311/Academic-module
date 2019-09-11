@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.urls import reverse_lazy
 from django.http import Http404
 from django.views.generic import TemplateView
 from acadmodule.models import BatchSemester,Course,CurriculumCourse,CurriculumInstructor,BtechCurriculum
@@ -24,7 +25,7 @@ def get_course_list(request):
 
 def add_btech_curriculum(request):
     if request.method =='POST':
-        programme = request.POST['programme']
+        programme_ = request.POST['programme']
         batch =request.POST['batch']
         professional_core_credit =request.POST['prof_core_credit']
         professional_elective_credit = request.POST['prof_elective_credit']
@@ -41,7 +42,7 @@ def add_btech_curriculum(request):
 
         print(programme,batch,pbi,pr)
         btech_curr = BtechCurriculum.objects.create(
-        programme=programme,
+        programme=programme_,
         batch=batch,
         professional_core_credit=professional_core_credit,
         professional_elective_credit=professional_elective_credit,
@@ -134,9 +135,11 @@ def add_curriculum_course(request):
         course_practical = request.POST['course_practical']
         course_discussion= request.POST['course_discussion']
         obj = BatchSemester.objects.all().filter(semester=sem).filter(batch=2018).first()
+        obj2 = Course.objects.filter(course_name=course).first()
         print(obj)
         CurriculumCourse.objects.create(
         semester=obj,
+        curr_course=obj2,
         course_id=course_id,
         course_type=course_type,
         course_credits=course_credits,
@@ -145,6 +148,9 @@ def add_curriculum_course(request):
         course_practical=course_practical,
         course_discussion=course_discussion
         )
+
+
+
 
 
         # obj2 = Course.objects.filter(course_name = course)
@@ -163,70 +169,78 @@ def view_curriculum(request):
         semester = request.POST['semester']
         programme = request.POST['programme']
         print(programme)
-        obj = BtechCurriculum.objects.filter(batch=batch).first()
-        if semester == "all":
-            obj1 = obj.sem1
-            obj2 = obj.sem2
-            obj3 = obj.sem3
-            obj4 = obj.sem4
-            obj5 = obj.sem5
-            obj6 = obj.sem6
-            obj7 = obj.sem7
-            obj8 = obj.sem8
-            sem1 = CurriculumCourse.objects.all().filter(semester=obj1)
-            sem2 = CurriculumCourse.objects.all().filter(semester=obj2)
-            sem3 = CurriculumCourse.objects.all().filter(semester=obj3)
-            sem4 = CurriculumCourse.objects.all().filter(semester=obj4)
-            sem5 = CurriculumCourse.objects.all().filter(semester=obj5)
-            sem6 = CurriculumCourse.objects.all().filter(semester=obj6)
-            sem7 = CurriculumCourse.objects.all().filter(semester=obj7)
-            sem8 = CurriculumCourse.objects.all().filter(semester=obj8)
-            context = {'semester1':sem1,
-            'semester2':sem2,
-            'semester3':sem3,
-            'semester4':sem4,
-            'semester5':sem5,
-            'semester6':sem6,
-            'semester7':sem7,
-            'semester8':sem8,
-            'tab':9}
-        elif semester == 1 :
-            obj1 = obj.sem1
-            sem1 = CurriculumCourse.objects.all().filter(semester=obj1)
-            context = {'semester1':sem1,'tab':1}
-        elif semester == 2 :
-            obj2 = obj.sem2
-            sem2 = CurriculumCourse.objects.all().filter(semester=obj2)
-            context = {'semester2':sem2,'tab':2}
-        elif semester == 3 :
-            obj3 = obj.sem3
-            sem3 = CurriculumCourse.objects.all().filter(semester=obj3)
-            context = {'semester3':sem3,'tab':3}
-        elif semester == 4 :
-            obj4 = obj.sem4
-            sem4 = CurriculumCourse.objects.all().filter(semester=obj4)
-            context = {'semester4':sem4,'tab':4}
-        elif semester == 5 :
-            obj5 = obj.sem5
-            sem5 = CurriculumCourse.objects.all().filter(semester=obj5)
-            context = {'semester5':sem5,'tab':5}
-        elif semester == 6 :
-            obj6 = obj.sem6
-            sem6 = CurriculumCourse.objects.all().filter(semester=obj6)
-            context = {'semester6':sem6,'tab':6}
-        elif semester == 7 :
-            obj7 = obj.sem7
-            sem7 = CurriculumCourse.objects.all().filter(semester=obj7)
-            context = {'semester7':sem7,'tab':7}
-        elif semester == 8 :
-            obj8 = obj.sem8
-            sem8 = CurriculumCourse.objects.all().filter(semester=obj8)
-            context = {'semester8':sem8,'tab':8}
+        # get_curriculum_list(request,batch,semester)
+        # redirect_url = reverse_lazy('showCurriculum')
 
-    return render(request,'get_curriculum.html',context)
+    return render(request,'get_curriculum.html',get_curriculum_list(request))
 
 
 
+def get_curriculum_list(request):
+    obj = BtechCurriculum.objects.filter(batch=2018).first()
+    semester = 'all'
+    if semester == "all":
+        obj1 = obj.sem1
+        obj2 = obj.sem2
+        obj3 = obj.sem3
+        obj4 = obj.sem4
+        obj5 = obj.sem5
+        obj6 = obj.sem6
+        obj7 = obj.sem7
+        obj8 = obj.sem8
+        print(obj2,obj3,obj4)
+        sem1 = CurriculumCourse.objects.all().filter(semester=obj1)
+        sem2 = CurriculumCourse.objects.all().filter(semester=obj2)
+        sem3 = CurriculumCourse.objects.all().filter(semester=obj3)
+        sem4 = CurriculumCourse.objects.all().filter(semester=obj4)
+        sem5 = CurriculumCourse.objects.all().filter(semester=obj5)
+        sem6 = CurriculumCourse.objects.all().filter(semester=obj6)
+        sem7 = CurriculumCourse.objects.all().filter(semester=obj7)
+        sem8 = CurriculumCourse.objects.all().filter(semester=obj8)
+        print(sem2,sem3,sem4,sem1)
+        context = {'semester1':sem1,
+        'semester2':sem2,
+        'semester3':sem3,
+        'semester4':sem4,
+        'semester5':sem5,
+        'semester6':sem6,
+        'semester7':sem7,
+        'semester8':sem8,
+        'tab':'9'}
+    elif semester == 1 :
+        obj1 = obj.sem1
+        sem1 = CurriculumCourse.objects.all().filter(semester=obj1)
+        context = {'semester1':sem1,'tab':'1'}
+    elif semester == 2 :
+        obj2 = obj.sem2
+        sem2 = CurriculumCourse.objects.all().filter(semester=obj2)
+        context = {'semester2':sem2,'tab':'2'}
+    elif semester == 3 :
+        obj3 = obj.sem3
+        sem3 = CurriculumCourse.objects.all().filter(semester=obj3)
+        context = {'semester3':sem3,'tab':'3'}
+    elif semester == 4 :
+        obj4 = obj.sem4
+        sem4 = CurriculumCourse.objects.all().filter(semester=obj4)
+        context = {'semester4':sem4,'tab':'4'}
+    elif semester == 5 :
+        obj5 = obj.sem5
+        sem5 = CurriculumCourse.objects.all().filter(semester=obj5)
+        context = {'semester5':sem5,'tab':'5'}
+    elif semester == 6 :
+        obj6 = obj.sem6
+        sem6 = CurriculumCourse.objects.all().filter(semester=obj6)
+        context = {'semester6':sem6,'tab':'6'}
+    elif semester == 7 :
+        obj7 = obj.sem7
+        sem7 = CurriculumCourse.objects.all().filter(semester=obj7)
+        context = {'semester7':sem7,'tab':'7'}
+    elif semester == 8 :
+        obj8 = obj.sem8
+        sem8 = CurriculumCourse.objects.all().filter(semester=obj8)
+        context = {'semester8':sem8,'tab':'8'}
+
+    return context
 
 
 
