@@ -2,62 +2,131 @@
 
 {% block content %}
 
-  <h1>Add Curriculum Credits for B-tech.</h1>
 
-  <form class="btech_curriculum" method="post">{% csrf_token %}
+  <form class="btech_curriculum ui form" method="post">{% csrf_token %}
+  
+	<div class="field">
+		<h1>Add Curriculum Credits for B-tech.</h1>
+	</div>
+	
+	<div class="field">
+		<label class="ui dividing header"><h4>Programme</h4></label>
+		<select name="programme" class="ui fluid dropdown">
+			<option value="BTech">BTech</option>
+			<option value="BDes">BDes</option>
+			<option value="MDes">MDes</option>
+			<option value="MTech">MTech</option>
+			<option value="PhD">PhD</option>
+		</select>
+	</div>
 
-
-    <label>Programme</label>
-    <select name="programme">
-        <option value="BTech">BTech</option>
-        <option value="BDes">BDes</option>
-        <option value="MDes">MDes</option>
-        <option value="MTech">MTech</option>
-        <option value="PhD">PhD</option>
-    </select><br><br>
-
-
-    <label for="batch">Batch</label>
-    <input type="number" name="batch" placeholder="Batch"><br><br>
-
-    <label for="prof_core_credit">Professional Core</label>
-    <input type="number" name="prof_core_credit" placeholder="Professional Core"><br><br>
-
-    <label for="prof_elective_credit">Professional Elective</label>
-    <input type="number" name="prof_elective_credit" placeholder="Professional Elective"><br><br>
-
-    <label for="prof_project_credit">Professional Project </label>
-    <input type="number" name="prof_project_credit" placeholder="Professional Project"><br><br>
-
-    <label for="prof_lab_credit">Professional Lab </label>
-    <input type="number" name="prof_lab_credit" placeholder="Professional Lab"><br><br>
-
-    <label for="core_engineering_science_credit">Engineering Science</label>
-    <input type="number" name="core_engineering_science_credit" placeholder="Engineering Science"><br><br>
-
-    <label for="core_humanities_credit">Humanities</label>
-    <input type="number" name="core_humanities_credit" placeholder="Humanities"><br><br>
-
-    <label for="core_design_credit">Design</label>
-    <input type="number" name="core_design_credit" placeholder="Design"><br><br>
-
-    <label for="core_manufacturing_credit">Manufacturing</label>
-    <input type="number" name="core_manufacturing_credit" placeholder="Manufacturing"><br><br>
-
-    <label for="core_natural_science_credit">Natural Science</label>
-    <input type="number" name="core_natural_science_credit" placeholder="Natural Science"><br><br>
-
-    <label for="core_management_science_credit">Management Science</label>
-    <input type="number" name="core_management_science_credit" placeholder="Management Science"><br><br>
-
-    <label for="pbi">PBI</label>
-    <input type="number" name="pbi" placeholder="PBI"><br><br>
-
-    <label for="pr">Optional Project</label>
-    <input type="number" name="pr" placeholder="Optional Project"><br><br>
-
-    <button type="submit" name="button">Add Curriculum</button>
-
+	<div class="field">
+		<label for="batch" class="ui dividing header"><h4>Batch</h4></label>
+		<div class="ui input focus">
+			<input type="number" name="batch" placeholder="Batch">
+		</div>
+	</div>
+	
+	<div class="field">
+		<h4 class="ui dividing header">Professional</h4>
+		<div class="fields">
+			<div class="three wide field">
+				<label for="prof_core_credit">Core</label>
+				<div class="ui input focus">
+					<input type="number" name="prof_core_credit" placeholder="Professional Core">
+				</div>
+			</div>
+			
+			<div class="three wide field">
+				<label for="prof_elective_credit">Elective</label>
+				<div class="ui input focus">
+					<input type="number" name="prof_elective_credit" placeholder="Professional Elective">
+				</div>
+			</div>
+			
+			<div class="three wide field">
+				<label for="prof_project_credit">Project </label>
+				<div class="ui input focus">
+				<input type="number" name="prof_project_credit" placeholder="Professional Project">
+				</div>
+			</div>
+			
+			<div class="three wide field">
+				<label for="prof_lab_credit">Lab </label>
+				<div class="ui input focus">
+					<input type="number" name="prof_lab_credit" placeholder="Professional Lab">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class = "field">
+		<h4 class="ui dividing header">Core</h4>
+		<div class="fields">
+			<div class="six wide field">
+				<label for="core_engineering_science_credit">Engineering Science</label>
+				<div class="ui input focus">
+					<input type="number" name="core_engineering_science_credit" placeholder="Engineering Science">
+				</div>
+			</div>
+			
+			<div class="six wide field">
+				<label for="core_humanities_credit">Humanities</label>
+				<div class="ui input focus">
+					<input type="number" name="core_humanities_credit" placeholder="Humanities">
+				</div>
+			</div>
+		</div>
+		
+		<div class="fields">
+			<div class="six wide field">
+				<label for="core_design_credit">Design</label>
+				<div class="ui input focus">
+					<input type="number" name="core_design_credit" placeholder="Design">
+				</div>
+			</div>
+			
+			<div class="six wide field">
+				<label for="core_manufacturing_credit">Manufacturing</label>
+				<div class="ui input focus">
+					<input type="number" name="core_manufacturing_credit" placeholder="Manufacturing">
+				</div>
+			</div>
+		</div>
+		
+		<div class="fields">
+			<div class="six wide field">
+				<label for="core_natural_science_credit">Natural Science</label>
+				<div class="ui input focus">
+					<input type="number" name="core_natural_science_credit" placeholder="Natural Science">
+				</div>
+			</div>
+			
+			<div class="six wide field">
+				<label for="core_management_science_credit">Management Science</label>
+				<div class="ui input focus">
+					<input type="number" name="core_management_science_credit" placeholder="Management Science">
+				</div>
+			</div>
+		</div>
+		
+		<div class="field">
+			<label for="pbi" class="ui dividing header"><h4>PBI</h4></label>
+			<div class="ui input focus">
+				<input type="number" name="pbi" placeholder="PBI">
+			</div>
+		</div>
+		
+		<div class="field">
+			<label for="pr" class="ui dividing header"><h4>Optional Project</h4></label>
+			<div class="ui input focus">
+				<input type="number" name="pr" placeholder="Optional Project">
+			</div><br><br>
+		</div>
+		
+		<div class="field">
+			<button type="submit" name="button" class="ui primary button">Add Curriculum</button>
+		</div>
 
   </form>
 

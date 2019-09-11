@@ -2,53 +2,88 @@
 
 {% block content %}
 
-  <form method="post">
+  <form method="post" class="ui form">
     {% csrf_token %}
-
-    <label>Semester</label>
-    <input type="number" name="semester">
-
-    <label>Course ID</label>
-    <input type="text" name="course_id"><br><br>
-
-    <label>Course Type</label>
-    <select name="course_type">
-      <option value="Core">Professional Core</option>
-      <option value="Elective">Professional Elective</option>
-      <option value="Lab">Professional Lab</option>
-      <option value="Project">Professional Project</option>
-      <option value="ES">Engineering Science</option>
-      <option value="NS">Natural Science</option>
-      <option value="HS">Humanities</option>
-      <option value="DS">Design</option>
-      <option value="MN">Manufacturing</option>
-      <option value="MS">Management Science</option>
-    </select>
-
-    <label>Course</label>
-    <select name="course">
-      {% for coursename in course_list %}
-        <option value="{{coursename.course_name}}">{{coursename.course_name}}</option>
-      {% endfor %}
-    </select>
-    <!-- <input type="text" name="course"><br><br> -->
-
-    <label>Course Credits</label>
-    <input type="number" name="course_credits"><br><br>
-
-    <label>Course Lecture</label>
-    <input type="number" name="course_lecture"><br><br>
-
-    <label>Course Tutorials</label>
-    <input type="number" name="course_tutorials"><br><br>
-
-    <label>Course Practicals</label>
-    <input type="number" name="course_practical"><br><br>
-
-    <label>Course Discussions</label>
-    <input type="number" name="course_discussion"><br><br>
-
-    <button type="submit" name="button">Add Course</button>
+	<div class="field">
+		<h1>Add Course to Curriculum</h1>
+	</div>
+	
+	<div class="field">
+		<label>Semester</label>
+		<div class="ui input focus">
+			<input type="number" name="semester">
+	</div>
+	
+	<div class="field">
+		<label>Course ID</label>
+		<div class="ui input focus">
+			<input type="text" name="course_id">
+		</div>
+	</div>
+		
+		
+	<div class="field">
+		<label>Course Type</label>
+		<select name="course_type" class="ui fluid dropdown">
+		  <option value="Core">Professional Core</option>
+		  <option value="Elective">Professional Elective</option>
+		  <option value="Lab">Professional Lab</option>
+		  <option value="Project">Professional Project</option>
+		  <option value="ES">Engineering Science</option>
+		  <option value="NS">Natural Science</option>
+		  <option value="HS">Humanities</option>
+		  <option value="DS">Design</option>
+		  <option value="MN">Manufacturing</option>
+		  <option value="MS">Management Science</option>
+		</select>
+	</div>
+	
+	<div class="field">
+		<label>Course</label>
+		<select name="course">
+		  {% for coursename in course_list %}
+			<option value="{{coursename.course_name}}">{{coursename.course_name}}</option>
+		  {% endfor %}
+		</select>
+		<!-- <input type="text" name="course"><br><br> -->
+	</div>
+	
+	<div class="field">
+		<label>Course Credits</label>
+		<div class="ui input focus">
+			<input type="number" name="course_credits">
+		</div>
+		
+	<div class="field">
+		<label>Course Lecture</label>
+		<div class="ui input focus">
+			<input type="number" name="course_lecture">
+		</div>
+	</div>
+	
+	<div class="field">
+		<label>Course Tutorials</label>
+		<div class="ui input focus">
+			<input type="number" name="course_tutorials">
+		</div>
+	</div>
+	
+	<div class="field">
+		<label>Course Practicals</label>
+		<div class="ui input focus">
+			<input type="number" name="course_practical">
+		</div>
+	</div>
+	
+	<div class="field">
+		<label>Course Discussions</label>
+		<div class="ui input focus">
+			<input type="number" name="course_discussion">
+		</div>
+	</div>
+	
+	<div class="field">
+		<button type="submit" name="button" class="ui primary button">Add Course</button>
 
   </form>
 
