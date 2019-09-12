@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "testhtml.html" %}
 
 {% block content %}
 
@@ -10,13 +10,13 @@
 	
 	<div class="field">
 		<label>Semester</label>
-		<div class="ui input focus">
+		<div class="ui input focus three wide field">
 			<input type="number" name="semester">
 	</div>
 	
 	<div class="field">
 		<label>Course ID</label>
-		<div class="ui input focus">
+		<div class="ui input focus three wide field">
 			<input type="text" name="course_id">
 		</div>
 	</div>
@@ -24,7 +24,7 @@
 		
 	<div class="field">
 		<label>Course Type</label>
-		<select name="course_type" class="ui fluid dropdown">
+		<select name="course_type" class="ui fluid dropdown three wide field">
 		  <option value="Core">Professional Core</option>
 		  <option value="Elective">Professional Elective</option>
 		  <option value="Lab">Professional Lab</option>
@@ -40,7 +40,7 @@
 	
 	<div class="field">
 		<label>Course</label>
-		<select name="course">
+		<select name="course" class="three wide field">
 		  {% for coursename in course_list %}
 			<option value="{{coursename.course_name}}">{{coursename.course_name}}</option>
 		  {% endfor %}
@@ -50,35 +50,38 @@
 	
 	<div class="field">
 		<label>Course Credits</label>
-		<div class="ui input focus">
+		<div class="ui input focus three wide field">
 			<input type="number" name="course_credits">
 		</div>
+	</div>
+	
+	<div class="fields">
+		<div class="three wide field">
+			<label>Course Lecture</label>
+			<div class="ui input focus">
+				<input type="number" name="course_lecture">
+			</div>
+		</div>
 		
-	<div class="field">
-		<label>Course Lecture</label>
-		<div class="ui input focus">
-			<input type="number" name="course_lecture">
+		<div class="three wide field">
+			<label>Course Tutorials</label>
+			<div class="ui input focus">
+				<input type="number" name="course_tutorials">
+			</div>
 		</div>
-	</div>
-	
-	<div class="field">
-		<label>Course Tutorials</label>
-		<div class="ui input focus">
-			<input type="number" name="course_tutorials">
+		
+		<div class="three wide field">
+			<label>Course Practicals</label>
+			<div class="ui input focus">
+				<input type="number" name="course_practical">
+			</div>
 		</div>
-	</div>
-	
-	<div class="field">
-		<label>Course Practicals</label>
-		<div class="ui input focus">
-			<input type="number" name="course_practical">
-		</div>
-	</div>
-	
-	<div class="field">
-		<label>Course Discussions</label>
-		<div class="ui input focus">
-			<input type="number" name="course_discussion">
+		
+		<div class="three wide field">
+			<label>Course Discussions</label>
+			<div class="ui input focus">
+				<input type="number" name="course_discussion">
+			</div>
 		</div>
 	</div>
 	

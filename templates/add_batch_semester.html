@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "testhtml.html" %}
 
 {% block content %}
 
@@ -9,8 +9,8 @@
 	</div>
 	
 	<div class="field">
-		<label><h4 class="ui dividing header">Programme</h4></label>
-		<select name="programme" class="ui fluid dropdown">
+		<label><h3 class="ui dividing header">Programme</h3></label>
+		<select name="programme" class="ui fluid dropdown three wide field">
 			<option value="BTech">B.Tech</option>
 			<option value="BDes">B.Des</option>
 			<option value="MDes">M.Des</option>
@@ -20,28 +20,28 @@
 	</div>
 	
 	<div class="field">
-		<label><h4 class="ui dividing header">Batch</h4></label>
-		<div class="ui input focus">
+		<label><h3 class="ui dividing header">Batch</h3></label>
+		<div class="ui input focus three wide field">
 			<input type="number" name="batch">
 		</div>
 	</div>
 
 	<div class="field">
-		<label><h4 class="ui dividing header">Semester</h4></label>
-		<div class="ui input focus">
+		<label><h3 class="ui dividing header">Semester</h3></label>
+		<div class="ui input focus three wide field">
 			<input type="number" name="semester">
 		</div>
 	</div>
 	
 	<div class="field">
-		<label><h4 class="ui dividing header">Total Courses</h4></label>
-		<div class="ui input focus">
+		<label><h3 class="ui dividing header">Total Courses</h3></label>
+		<div class="ui input focus three wide field">
 			<input type="number" name="total_number_of_courses">
 		</div>
 	</div>
 	
 	<div class="field">
-		<h4 class="ui dividing header">Professional</h4>
+		<h3 class="ui dividing header">Professional</h3>
 		<div class="fields">
 			<div class="three wide field">
 				<label>Core Courses</label>
@@ -72,7 +72,7 @@
 	</div>
 		
 	<div class="field">
-		<h4 class="ui dividing header">Core</h4>
+		<h3 class="ui dividing header">Core</h3>
 		<div class="fields">
 			<div class="six wide field">
 				<label>Engineering Science Courses</label>
@@ -123,7 +123,7 @@
 	</div>
 	
 	<div class="field">
-		<label><h4 class="ui dividing header">PBI</h4></label>
+		<label><h3 class="ui dividing header">PBI</h3></label>
 		<select name='pbi' class="ui fluid dropdown">
 		  <option value="True">Allowed</option>
 		  <option value="False">Not Allowed</option>

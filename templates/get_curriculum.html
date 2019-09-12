@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "testhtml.html" %}
 
 {% block content %}
 
@@ -9,24 +9,24 @@
 	</div>
   
 	<div class="field">
-		<label><h4 class="ui dividing header">Batch</h4></label>
-		<input type="number" name="batch"><br><br>
+		<label><h3 class="ui dividing header">Batch</h3></label>
+		<input type="number" name="batch" class="four wide field">
 	</div>
 	
 	<div class="field">
-		<label><h4 class="ui dividing header">Programme</h4></label>
-		<select name="programme" id="programme" class="ui fluid dropdown">
+		<label><h3 class="ui dividing header">Programme</h3></label>
+		<select name="programme" id="programme" class="ui fluid dropdown four wide field">
 			<option value="BTech">B.Tech</option>
 			<option value="BDes">B.Des</option>
 			<option value="MDes">M.Des</option>
 			<option value="MTech">M.Tech</option>
 			<option value="Phd">PhD</option>
-		</select><br><br>
+		</select>
 	</div>
 	
 	<div class="field">
-		<label class="ui fluid dropdown dividing header"><h4>Semester</h4></label>
-		<select  name="semester">
+		<label class="ui fluid dropdown"><h3>Semester</h3></label>
+		<select  name="semester" class="four wide field">
 		  <option value="all">all</option>
 		  <option value="1">1</option>
 		  <option value="2">2</option>

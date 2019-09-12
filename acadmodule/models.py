@@ -50,7 +50,7 @@ class Constants:
 #         return self.name
 
 class Course(models.Model):
-    course_name = models.CharField(max_length=256)
+    course_name = models.CharField(max_length=256, unique=True)
     course_details = models.TextField(max_length=2500)
 
     def __str__(self):
