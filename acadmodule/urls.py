@@ -1,11 +1,14 @@
 from django.conf.urls import url,include
 from django.contrib import admin
-from acadmodule.views import add_course,add_btech_curriculum,add_batch_semester,add_curriculum_course,view_curriculum
+from acadmodule import views
 
 urlpatterns = [
-    url(r'^add_course/', add_course,name="add_courses"),
-    url(r'^add_btech_curriculum/', add_btech_curriculum,name="add_btech_curriculums"),
-    url(r'^add_batch_semester/', add_batch_semester,name="add_batch_semester"),
-    url(r'^add_curriculum_course/', add_curriculum_course,name="add_curriculum_courses"),
-    url(r'^view_curriculum/', view_curriculum,name="view_curriculums"),
+    url(r'^add_course/', views.add_course,name="add_courses"),
+    url(r'^add_btech_curriculum/', views.add_btech_curriculum,name="add_btech_curriculums"),
+    url(r'^add_batch_semester/', views.add_batch_semester,name="add_batch_semester"),
+    url(r'^add_curriculum_course/', views.add_curriculum_course,name="add_curriculum_courses"),
+    url(r'^view_curriculum/', views.view_curriculum,name="view_curriculums"),
+    url(r'^test/',views.testajax,name="test"),
+    url(r'^select/',views.selectProgramme,name="select"),
+    url(r'^Academics/',views.programme,name="pro"),
 ]
