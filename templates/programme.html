@@ -5,45 +5,79 @@
   <div id="chooseprogram">
     <form method="post">
       {% csrf_token %}
-      <div class="fields">
+      <div class="fields" style="display: none;">
         <div class="field">
           <input class="ui input" type="text" name="programme" id="prog"  value=""><br><br>
         </div>
 
         <div class="field">
-          <div class="testclass ui primary button" name="button">submit</div>
+          <div class="testclass ui primary button" name="button" id="but">submit</div>
         </div>
       </div>
 
     </form>
+    <div style="margin-left: 25vw;">
+      <button class="fluid ui button" onclick="changevalue(1)" style="margin: 2.5px; width: 30vw;">B.Tech</button>
+      <button class="fluid ui button" onclick="changevalue(2)" style="margin: 2.5px; width: 30vw;">B.Des</button>
+      <button class="fluid ui button" onclick="changevalue(3)" style="margin: 2.5px; width: 30vw;">M.Tech</button>
+      <button class="fluid ui button" onclick="changevalue(4)" style="margin: 2.5px; width: 30vw;">M.Des</button>
+      <button class="fluid ui button" onclick="changevalue(5)" style="margin: 2.5px; width: 30vw;">PhD</button>
+    </div>
   </div>
 
   <div class="newdiv">
 
   </div>
+  
+
+
+
+  <script type="text/javascript">  
+    function changevalue(value)
+    {
+      if(value == 1)
+        document.getElementById("prog").value="BTech";
+      else if(value == 2)
+        document.getElementById("prog").value="BDes";
+      else if(value == 3)
+        document.getElementById("prog").value="MTech";
+      else if(value == 4)
+        document.getElementById("prog").value="MDes";
+      else
+        document.getElementById("prog").value="PhD";
+      clicksubmit();
+    }
+    function clicksubmit()
+    {
+      document.getElementById("but").click();
+    }
+  </script>
+
+
+
 
   <script type="text/javascript">
     $(document).ready(function(){
-  		$('.testclass').on('click',function(e){
+      $('.testclass').on('click',function(e){
         // alert("one");
-  			var programme = document.getElementById("prog").value;
+        var programme = document.getElementById("prog").value;
         // alert(batch);
-  			$.ajax({
-  				type:"POST",
-  		        url: "/select/",
-  		        data:{
+        $.ajax({
+          type:"POST",
+              url: "/select/",
+              data:{
                 programme:programme,
-  		          csrfmiddlewaretoken: '{{ csrf_token }}'
-  		        },
-  		        success: function( data )
-  		        {
+                csrfmiddlewaretoken: '{{ csrf_token }}'
+              },
+              success: function( data )
+              {
                 $('#chooseprogram').hide();
-  		        	$(".newdiv").show();
-  		        	$(".newdiv").html(data.d);
-  		        }
-  			});
-  		});
-  	});
+                $(".newdiv").show();
+                $(".newdiv").html(data.d);
+              }
+        });
+      });
+    });
 
   </script>
 
